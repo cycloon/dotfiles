@@ -40,16 +40,17 @@ brew install caskroom/cask/brew-cask
 # Apps
 # TODO: check my installed apps and add them here
 apps=(
-  acorn
+  sublime-text3
   dropbox
+  skype
+  vlc
+  acorn
   google-chrome
   firefox
   qlmarkdown
   qlprettypatch
-  sublime-text3
-  vlc
   quicklook-json
-  skype
+  sourcetree
 )
 
 # Install apps to /Applications
