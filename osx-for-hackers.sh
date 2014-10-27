@@ -42,10 +42,29 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 echo ""
 echo "Setting the hostname to $COMPUTER_NAME"
 
-#sudo scutil --set ComputerName $COMPUTER_NAME
-#sudo scutil --set HostName $COMPUTER_NAME
-#sudo scutil --set LocalHostName $COMPUTER_NAME
-#sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $COMPUTER_NAME
+sudo scutil --set ComputerName $COMPUTER_NAME
+sudo scutil --set HostName $COMPUTER_NAME
+sudo scutil --set LocalHostName $COMPUTER_NAME
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $COMPUTER_NAME
+
+echo ""
+echo "Setting dark theme of yosemite"
+sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
+
+echo ""
+echo "Hide the User, and Date entries in menu bar"
+for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+    defaults write "${domain}" dontAutoLoad -array \
+  "/System/Library/CoreServices/Menu Extras/User.menu"
+  "/System/Library/CoreServices/Menu Extras/Clock.menu"
+done
+
+defaults write com.apple.systemuiserver menuExtras -array \
+  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+  "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+  "/System/Library/CoreServices/Menu Extras/Battery.menu"
+
+
 
 echo ""
 echo "Increasing the window resize speed for Cocoa applications"
@@ -78,6 +97,9 @@ echo ""
 echo "Removing duplicates in the 'Open With' menu"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
+# Set Help Viewer windows to non-floating mode
+defaults write com.apple.helpviewer DevMode -bool true
+
 
 ###############################################################################
 # General Power and Performance modifications
@@ -91,6 +113,12 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 ################################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input
 ###############################################################################
+
+# Trackpad: enable tap to click for this user and for the login screen
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
 
 echo ""
 echo "Increasing sound quality for Bluetooth headphones/headsets"
@@ -116,6 +144,11 @@ defaults write -g com.apple.mouse.scaling 2.5
 echo ""
 echo "Turn off keyboard illumination when computer is not used for 5 minutes"
 defaults write com.apple.BezelServices kDimTime -int 300
+
+# Set the timezone; see `sudo systemsetup -listtimezones` for other values
+sudo systemsetup -settimezone "Europe/Berlin" > /dev/null
+
+
 
 ###############################################################################
 # Screen
@@ -176,6 +209,10 @@ echo "Enabling snap-to-grid for icons on the desktop and in other icon views"
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 
+# When performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+
 ###############################################################################
 # Dock & Mission Control
 ###############################################################################
@@ -194,6 +231,39 @@ echo "Set Dock to auto-hide and remove the auto-hiding delay"
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
+
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Hot corners
+# Possible values:
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+
+# Top left screen corner → Mission Control
+defaults write com.apple.dock wvous-tl-corner -int 3
+defaults write com.apple.dock wvous-tl-modifier -int 0
+# Top right screen corner → Desktop
+defaults write com.apple.dock wvous-tr-corner -int 2
+defaults write com.apple.dock wvous-tr-modifier -int 0
+# Bottom left screen corner → Start screen saver
+defaults write com.apple.dock wvous-bl-corner -int 4
+defaults write com.apple.dock wvous-bl-modifier -int 5
+
 
 
 ###############################################################################

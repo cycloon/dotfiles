@@ -19,7 +19,6 @@ brew install findutils
 # Install my selection
 binaries=(
   rename
-  sshfs
   trash
   node
   git
@@ -36,6 +35,7 @@ brew install ${binaries[@]}
 brew cleanup
 
 brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
 
 # Apps
 # TODO: check my installed apps and add them here
@@ -44,7 +44,6 @@ apps=(
   dropbox
   skype
   vlc
-  acorn
   google-chrome
   firefox
   qlmarkdown
