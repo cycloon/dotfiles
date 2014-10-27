@@ -192,7 +192,7 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 echo ""
 echo "Use column view in all Finder windows by default"
-defaults write com.apple.finder FXPreferredViewStyle Clmv
+defaults write com.apple.finder FXPreferredViewStyle clmv
 
 echo ""
 echo "Avoid creation of .DS_Store files on network volumes"
