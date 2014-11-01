@@ -86,7 +86,7 @@ echo "Displaying ASCII control characters using caret notation in standard text 
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 
 echo ""
-echo "Save to disk, rather than iCloud, by default? (y/n)"
+echo "Save to disk, rather than iCloud, by default?"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 echo ""
@@ -138,7 +138,7 @@ defaults write NSGlobalDomain KeyRepeat -int 0
 
 echo ""
 echo "Setting trackpad & mouse speed to a reasonable number"
-defaults write -g com.apple.trackpad.scaling 2
+defaults write -g com.apple.mouse.scaling 1
 defaults write -g com.apple.mouse.scaling 2.5
 
 echo ""
