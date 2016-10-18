@@ -55,7 +55,7 @@ echo ""
 echo "Hide the User, and Date entries in menu bar"
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
     defaults write "${domain}" dontAutoLoad -array \
-  "/System/Library/CoreServices/Menu Extras/User.menu"
+  "/System/Library/CoreServices/Menu Extras/User.menu" \
   "/System/Library/CoreServices/Menu Extras/Clock.menu"
 done
 
@@ -95,9 +95,9 @@ echo ""
 echo "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
-echo ""
-echo "Removing duplicates in the 'Open With' menu"
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+#echo ""
+#echo "Removing duplicates in the 'Open With' menu"
+#/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 # Set Help Viewer windows to non-floating mode
 defaults write com.apple.helpviewer DevMode -bool true
@@ -136,6 +136,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 echo ""
 echo "Setting a blazingly fast keyboard repeat rate"
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write NSGlobalDomain KeyRepeat -float 0.000000000001
 
 echo ""
