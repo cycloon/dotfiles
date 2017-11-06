@@ -18,6 +18,7 @@ brew "trash"
 brew "mtr"
 brew "nmap"
 brew "pssh"
+brew "ipcalc"
 
 brew "git"
 brew "git-lfs"
