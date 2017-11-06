@@ -32,7 +32,6 @@ brew "ddrescue"
 brew "ffmpeg"
 brew "youtube-dl"
 
-
 cask "github"
 cask "owncloud"
 cask "betterzipql"
