@@ -34,7 +34,6 @@ brew "ffmpeg"
 brew "youtube-dl"
 
 cask "github"
-cask "owncloud"
 cask "betterzipql"
 cask "dropbox"
 cask "firefox"
@@ -61,6 +60,10 @@ cask "fromscratch"
 cask "kaleidoscope"
 cask "omnioutliner"
 cask "whatsize"
+cask "viscosity"
+cask "nextcloud"
+cask "mailbutler"
+cask "subethaedit"
 
 #cask "multifirefox"
 
