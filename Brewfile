@@ -19,6 +19,7 @@ brew "mtr"
 brew "nmap"
 brew "pssh"
 brew "ipcalc"
+brew "wakeonlan"
 
 brew "git"
 brew "git-lfs"
