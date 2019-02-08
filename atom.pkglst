@@ -1,6 +1,8 @@
 atom-beautify
 atom-terminal
 atom-ternjs
+autocomplete
+autocomplete-modules
 autocomplete-php
 intentions
 linter
@@ -9,8 +11,11 @@ linter-js-standard
 linter-jscs
 linter-jshint
 linter-php
+linter-tidy
 linter-ui-default
 linter-checkbashisms
 minimap
+open-in-browser
+preview
 prettier-atom
 standard-formatter
