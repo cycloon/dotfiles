@@ -1,0 +1,16 @@
+atom-beautify
+atom-terminal
+atom-ternjs
+autocomplete-php
+intentions
+linter
+linter-eslint
+linter-js-standard
+linter-jscs
+linter-jshint
+linter-php
+linter-ui-default
+linter-checkbashisms
+minimap
+prettier-atom
+standard-formatter
