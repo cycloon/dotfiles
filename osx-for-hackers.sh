@@ -152,7 +152,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 echo ""
 echo "Setting a blazingly fast keyboard repeat rate"
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
-defaults write NSGlobalDomain KeyRepeat -float 0.000000000001
+defaults write NSGlobalDomain KeyRepeat -int 2
 
 echo ""
 echo "Setting trackpad & mouse speed to a reasonable number"
@@ -169,8 +169,8 @@ sudo systemsetup -settimezone "Europe/Berlin" > /dev/null
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
-defaults write NSGlobalDomain AppleLanguages -array "en" "de"
-defaults write NSGlobalDomain AppleLocale -string "en_US@currency=EUR"
+defaults write NSGlobalDomain AppleLanguages -array "en-DE" "de-DE"
+defaults write NSGlobalDomain AppleLocale -string "en_DE"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
