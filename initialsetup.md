@@ -23,4 +23,8 @@
 * istat Menus (Preference files and Application Support)
 
 
-### SSH-Keys in 
+### SSH-Keys in .ssh
+
+### SSH-Zugang aktivieren (Remote Login)
+
+### Message forwarding auf iPhone aktivieren
