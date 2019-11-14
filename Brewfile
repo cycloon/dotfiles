@@ -13,6 +13,7 @@ brew "pstree"
 brew "rename"
 brew "zsh-completions"
 brew "trash"
+brew "pwgen"
 
 brew "mtr"
 brew "nmap"
