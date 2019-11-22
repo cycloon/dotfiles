@@ -18,6 +18,8 @@
 * configure locale
 * configure printer
 
+* Remove F11 Shortcut (show Desktop)
+
 
 ### Settings
 * istat Menus (Preference files and Application Support)
