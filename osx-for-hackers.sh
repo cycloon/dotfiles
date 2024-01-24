@@ -53,7 +53,7 @@ sudo nvram SystemAudioVolume=" "
 
 echo ""
 echo "Setting dark theme of yosemite"
-sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
+#sudo defaults write /Library/Preferences/.GlobalPreferences AppleInterfaceTheme Dark
 
 echo ""
 echo "Hide the User, and Date entries in menu bar"
